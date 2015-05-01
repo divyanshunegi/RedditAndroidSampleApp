@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/post_icon"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="12dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerVertical="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/post_icon">
+
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Blank Link"
+            android:textColor="#7d7d7d"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingRight="40dp"/>
+
+        <TextView
+            android:id="@+id/post_subreddit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="no subreddit"
+            android:textColor="#b2b2b2"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="normal"
+            android:paddingRight="40dp"/>
+
+        </LinearLayout>
+
+
+    <TextView android:id="@+id/counter"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:textColor="#fff"/>
+
+</RelativeLayout>

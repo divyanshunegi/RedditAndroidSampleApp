@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="reddit_color">#d3f3fe</color>
+    <color name="reddit_dark_color">#8da3aa</color>
+    <color name="reddit_darkest_color">#5f6e73</color>
+
+</resources>
