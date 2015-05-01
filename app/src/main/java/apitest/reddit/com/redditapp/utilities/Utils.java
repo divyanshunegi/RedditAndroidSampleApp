@@ -20,7 +20,7 @@ public class Utils {
 
     public static String API_ROOT = "http://www.reddit.com/";
     public static String WEBSITE_URL = "http://www.reddit.com/hot/.compact";
-    public static int TIME_IN_MINUTES_FOR_POLLING = 10;
+    public static int TIME_IN_MINUTES_FOR_POLLING = 1;
     public static ArrayList<NotificationDataBean> notificationDataBeanArrayList = new ArrayList<>();
 
     public static void setTitleHeader(Activity act,int color){

@@ -32,12 +32,16 @@ public class RedditPostListAdapter extends BaseAdapter {
  
     @Override
     public int getCount() {
-        return postListItem.size();
+        int size = postListItem.size();
+//        if(RedditManager.isStarted){
+//            size = postListItem.size()>5?5:postListItem.size();
+//        }
+        return size;
     }
  
     @Override
     public Object getItem(int position) {       
-        return postListItem.get(getCount() - position - 1);
+        return postListItem.get(position);
     }
  
     @Override

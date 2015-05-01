@@ -6,7 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 
@@ -32,24 +31,17 @@ public class MainActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationIcon(R.mipmap.icon);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Reddit");
 
-
         ViewPager pager = (ViewPager) findViewById(R.id.vpPagerPlayer);
         pager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
-
-        // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-
         tabs.setViewPager(pager);
-
         if(in.getStringExtra("notification")!=null && in.getBooleanExtra("notification", false)){
-            Toast.makeText(this,"okok",Toast.LENGTH_SHORT).show();
             pager.setCurrentItem(1);
         }
 

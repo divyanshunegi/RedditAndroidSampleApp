@@ -5,17 +5,32 @@ package apitest.reddit.com.redditapp.models;
  */
 public class NotificationDataBean {
 
+    private String id;
     private String title;
     private String thumbnail;
     private String url;
     private String subreddit;
 
-    public NotificationDataBean(String title, String thumbnail, String url, String subreddit) {
 
+
+    public NotificationDataBean(String id, String title, String thumbnail, String url, String subreddit) {
+        this.id = id;
         this.title = title;
         this.thumbnail = thumbnail;
         this.url = url;
         this.subreddit = subreddit;
+    }
+
+    public NotificationDataBean() {
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

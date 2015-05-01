@@ -8,6 +8,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.List;
+
 import apitest.reddit.com.redditapp.manager.NotificationRedditManager;
 import apitest.reddit.com.redditapp.manager.RedditManager;
 import apitest.reddit.com.redditapp.models.NotificationDataBean;
@@ -28,6 +30,7 @@ public class PollingService extends Service {
     private RedditManager.RedditPostListener redditPostListener;
     private NotificationRedditManager notificationManager;
 
+
     @Override
     public void onDestroy() {
         Log.i(TAG, "Stopping service 'pollingService'");
@@ -46,15 +49,23 @@ public class PollingService extends Service {
         redditPostListener = new RedditManager.RedditPostListener() {
 
             @Override
-            public void onNewPost(NotificationDataBean notificationDataBean) {
-                notificationManager.sendNotification(notificationDataBean.getTitle(),notificationDataBean.getSubreddit());
-                System.out.println(notificationDataBean.getSubreddit()+"-"+notificationDataBean.getTitle());
-                Utils.notificationDataBeanArrayList.add(notificationDataBean);
+            public void onNewPost(List<NotificationDataBean> notificationDataBeanList) {
+
+                    if(RedditManager.isStarted){
+
+                        notificationManager.sendNotification(notificationDataBeanList.get(notificationDataBeanList.size()-1).getTitle(),notificationDataBeanList.get(notificationDataBeanList.size()-1).getSubreddit());
+                }
+
             }
 
             @Override
             public void onError(String error) {
                 Toast.makeText(getApplicationContext(),error,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFirstRun() {
+
             }
         };
         redditManager.setRedditPostListener(redditPostListener);

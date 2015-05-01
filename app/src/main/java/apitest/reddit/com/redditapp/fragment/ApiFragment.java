@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.List;
+
 import apitest.reddit.com.redditapp.R;
 import apitest.reddit.com.redditapp.adapters.RedditPostListAdapter;
 import apitest.reddit.com.redditapp.manager.RedditManager;
@@ -48,7 +50,7 @@ public class ApiFragment extends android.support.v4.app.Fragment {
         redditManager = RedditManager.getInstance(getActivity());
         redditPostListener = new RedditManager.RedditPostListener() {
             @Override
-            public void onNewPost(NotificationDataBean notificationDataBean) {
+            public void onNewPost(List<NotificationDataBean> notificationDataBeanList) {
                 redditPostListAdapter.notifyDataSetChanged();
             }
 
@@ -56,7 +58,13 @@ public class ApiFragment extends android.support.v4.app.Fragment {
             public void onError(String error) {
 
             }
+
+            @Override
+            public void onFirstRun() {
+                redditPostListAdapter.notifyDataSetChanged();
+            }
         };
+
         redditManager.setRedditPostListener(redditPostListener);
         postList = (ListView) rootView.findViewById(R.id.list_redditPosts);
         redditPostListAdapter = new RedditPostListAdapter(getActivity(),Utils.notificationDataBeanArrayList);
