@@ -61,7 +61,11 @@ public class RedditPostListAdapter extends BaseAdapter {
 
         txtTitle.setText(mDataList.getTitle());
         txtSubreddit.setText(mDataList.getSubreddit());
-        Picasso.with(context).load(mDataList.getThumbnail()).into(imgIcon);
+
+        if(mDataList.getThumbnail()!=null && !mDataList.getThumbnail().equals("") && mDataList.getThumbnail().contains("jpg")){
+            Picasso.with(context).load(mDataList.getThumbnail()).into(imgIcon);
+        }
+
 
         return convertView;
 
